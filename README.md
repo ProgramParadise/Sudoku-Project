@@ -24,9 +24,9 @@ In order to generate a sudoku, type <b>"generate".</b>
 Once you press enter, two options will appear:
 
 1) <b>"all at once"</b> will allow you to enter a 9x9 matrix at one time.
-2) <b>"one at a time"</b> will prompt you to enter a single value att a time.
+2) <b>"one at a time"</b> will prompt you to enter a single value at a time.
 
-After you have entered your matrix, two more options will appear:
+After you have entered the matrix, two more options will appear:
 
 1) <b>"code"</b> will output into the copy-pastable form for the main file's user input.
 2) <b>"matrix"</b> will output into a 9x9 square of numbers.
