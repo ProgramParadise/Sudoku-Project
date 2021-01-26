@@ -1,3 +1,4 @@
+using System.Net;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -161,10 +162,13 @@ namespace Sudoku
                 }
                 Console.Write("See puzzles.txt for the solutions.\n");
 
-                // if you uncomment this, you may want to comment the step output
+                // if you typed yes in userInput.txt, you may want to comment the step output
                 // in SolveRecurse. If you don't your file will be extremely large
                 // ~20MB
-                TestSolver(new StreamWriter("userInput_solved.txt"));
+                if (File.ReadLines("userInput.txt").Skip(1).Take(2).First().ToString().Trim().ToLowerInvariant() == "yes")
+                {
+                    TestSolver(new StreamWriter("userInput_solved.txt"));
+                }
             }
         }
         private static void TestSolver(StreamWriter writer)
@@ -175,7 +179,7 @@ namespace Sudoku
             List<int[,]> puzzles;
 
             List<string> lines = new List<string>();
-            var allLines = File.ReadAllLines("userInput.txt");
+            var allLines = File.ReadLines("userInput.txt").Skip(2);
             foreach(var line in allLines)
             {
                 if(line.StartsWith("#"))
