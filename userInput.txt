@@ -1,5 +1,5 @@
 #Type 'yes' or 'no' on next line for user input
-yes
+no
 #When typing your Sudoku puzzle, please type on a single #line and use '.' for spaces
 #|------------|
 #Ex:
