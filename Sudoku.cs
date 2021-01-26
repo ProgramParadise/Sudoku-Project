@@ -106,7 +106,7 @@ namespace Sudoku
 
                 if (Console.ReadLine().ToLowerInvariant() == "all at once")
                 {
-                    Console.WriteLine("Output the matrix with each digit separated by a comma.");
+                    Console.WriteLine("Input the matrix with each digit separated by a comma.");
                     string num = Console.ReadLine();
                     List<string> tokens = new List<string>(num.Split(","));
                     for (int i = 0; i != 9; i++)
@@ -164,7 +164,7 @@ namespace Sudoku
                 // if you uncomment this, you may want to comment the step output
                 // in SolveRecurse. If you don't your file will be extremely large
                 // ~20MB
-                // TestSolver(new StreamWriter("userInput_solved.txt"));
+                TestSolver(new StreamWriter("userInput_solved.txt"));
             }
         }
         private static void TestSolver(StreamWriter writer)
@@ -174,7 +174,19 @@ namespace Sudoku
             SudokuSolver solver;
             List<int[,]> puzzles;
 
-            string[] lines = File.ReadLines("userInput.txt").Skip(4).ToArray();
+            List<string> lines = new List<string>();
+            var allLines = File.ReadAllLines("userInput.txt");
+            foreach(var line in allLines)
+            {
+                if(line.StartsWith("#"))
+                {
+                    continue;
+                }
+                else
+                {
+                    lines.Add(line);
+                }
+            }
 
             puzzles = new List<int[,]>();
             foreach (string line in lines)
